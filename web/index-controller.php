@@ -22,6 +22,7 @@ final class Index {
         spl_autoload_register(array($this, 'loadClass'));
         //Start session
         session_start();
+        
     }
 
     //Run application
@@ -56,6 +57,7 @@ final class Index {
             die('Class"' . $name . '"not found.');
         }
         require_once $classes[$name];
+        
     }
 
     private function getPage() {
@@ -100,6 +102,8 @@ final class Index {
         $run = false;
         //check if requested page has a controller, require controller if available
         if ($this->hasController($page)) {
+            
+            
             $run = true;
             require $this->getController($page);
         }
@@ -121,8 +125,9 @@ final class Index {
         }
     }
     //Function to get the controller directory
-    private function getController($page) {
-        return self::PAGE_DIR . $this->module . '/' . $page . '-ctrl.php';
+    private function getController($page) {        
+        return self::PAGE_DIR . $this->module . '/' . $page . '-controller.php';
+        
     }
     //Function to get the view directory
     private function getView($page) {
