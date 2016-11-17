@@ -51,7 +51,14 @@ final class Index {
             'NotFoundException' => '../exception/NotFoundException.php',
             'BookingValidator' => '../validation/BookingValidator.php',
             'Utils' => '../util/Utils.php',
-            'HeadTemplate' => '../layout/HeadTemplate.php');
+            'HeadTemplate' => '../layout/HeadTemplate.php',
+            'User' => '../model/User.php',
+            'Clinic' => '../model/Clinic.php',
+            'ClinicDao' => '../dao/ClinicDao.php',
+            'UserDao' => '../dao/UserDao.php',
+            'ClinicMapper' => '../mapping/ClinicMapper.php',
+            'UserMapper' => '../mapping/UserMapper.php');
+        
         //Exception handler if class not found
         if (!array_key_exists($name, $classes)) {
             die('Class"' . $name . '"not found.');
@@ -101,9 +108,7 @@ final class Index {
     private function runPage($page, array $extra = array()) {
         $run = false;
         //check if requested page has a controller, require controller if available
-        if ($this->hasController($page)) {
-            
-            
+        if ($this->hasController($page)) {           
             $run = true;
             require $this->getController($page);
         }
@@ -111,7 +116,7 @@ final class Index {
         if ($this->hasView($page)) {
             $run = true;
             // data for main template
-            $view = $this->getView($page);
+            $view = $this->getView($page);            
             $flashes = null;
             if (Flash::hasFlashes()) {
                 $flashes = Flash::getFlashes();
