@@ -1,26 +1,17 @@
 <?php
 
-class UserDao {
-    private $db= null;
-    
+class UserDao extends Dao {
+
+    private $db = null;
+
     public function __destruct() {
         // close db connection
         $this->db = null;
     }
-    /**
-     * Find all {@link users}s by search criteria.
-     * @return array array of {@link Booking}s
-     */
-    public function find($sql) {
-        $result = array();
-        foreach ($this->query($sql) as $row) {
-            $user = new User();
-            UserMapper::map($user, $row);
-            $result[$user->getId()] = $user;
-        }
-        return $result;
+    //Function to find user by eamil & password
+    public function getUserDetails($email, $password, $db) {
+        $statement = $db->query('SELECT email, password FROM user WHERE email = "' . $email . '" AND password = "' . $password . '"');
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        return $row;
     }
-    
-    
-    
 }

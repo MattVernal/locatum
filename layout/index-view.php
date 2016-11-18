@@ -15,7 +15,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $headTemplate->getTitle();?></title>
+        <title><?php echo $headTemplate->getTitle(); ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -51,8 +51,14 @@
                         <li><a href="#">Page 3</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="index-controller.php?module=auth&page=auth"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo '<li><a href="index-controller.php?module=auth&page=auth&logout=true"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+                        } else {
+                            echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+                            echo '<li><a href="index-controller.php?module=auth&page=auth"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

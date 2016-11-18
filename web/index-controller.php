@@ -57,7 +57,8 @@ final class Index {
             'ClinicDao' => '../dao/ClinicDao.php',
             'UserDao' => '../dao/UserDao.php',
             'ClinicMapper' => '../mapping/ClinicMapper.php',
-            'UserMapper' => '../mapping/UserMapper.php');
+            'UserMapper' => '../mapping/UserMapper.php',
+            'Dao' => '../dao/Dao.php');
         
         //Exception handler if class not found
         if (!array_key_exists($name, $classes)) {
