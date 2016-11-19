@@ -23,7 +23,7 @@
         <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Raleway" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         <link rel="stylesheet" href="../web/css/main.css" type="text/css">
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img class="navbar-brand" src='../web/img/logo.svg' href="index-controller.php" alt='logo'>
+                    <img class="navbar-brand" src='../web/img/logo2.svg' href="index-controller.php" alt='logo'>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -55,7 +55,7 @@
                         if (isset($_SESSION['email'])) {
                             echo '<li><a href="index-controller.php?module=auth&page=auth&logout=true"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
                         } else {
-                            echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+                            echo '<li><a href="index-controller.php?module=account&page=account"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
                             echo '<li><a href="index-controller.php?module=auth&page=auth"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
                         }
                         ?>
@@ -69,14 +69,14 @@
             <div class="container">
                 <p class="text-muted">#MV Web Development</p>
             </div>
-        </footer>
+        </footer>  
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src='../web/js/bootstrap.js'></script>
 
-
-
-
-
+        <!-- Latest compiled and minified JavaScript -->
     </body>
+
 
 
 
