@@ -5,20 +5,23 @@ class UserMapper {
     private function __construct() {
         
     }
-    public static function map(Booking $user, array $properties) {
+    public static function map(User $user, array $properties) {
         if (array_key_exists('id', $properties)) {
             $user->setId($properties['id']);
         }
         if (array_key_exists('email', $properties)) {
-            $user->setEmail($properties['emailx']);
+            $user->setEmail($properties['email']);
         }
         
         if (array_key_exists('firstName', $properties)) {
             $user->setFirstName($properties['firstName']);
         }
+        if (array_key_exists('lastName', $properties)) {
+            $user->setLastName($properties['lastName']);
+        }
         
-        if (array_key_exists('contactNumber', $properties)) {
-            $user->setContactNumber($properties['contactNumber']);
+        if (array_key_exists('phoneNumber', $properties)) {
+            $user->setContactNumber($properties['phoneNumber']);
             }
             
         if (array_key_exists('password', $properties)) {
@@ -28,9 +31,4 @@ class UserMapper {
             $user->setRole($properties['role']);
         }
     }
-
-    private static function createDateTime($input) {
-        return DateTime::createFromFormat('Y-n-j H:i:s', $input);
-    }
-
 }
