@@ -7,7 +7,7 @@ final class Index {
     const DEFAULT_PAGE = 'home';
     const DEFAULT_MODULE = 'home';
     const PAGE_DIR = '../page/';
-    const LAYOUT_DIR = '../layout';
+    const LAYOUT_DIR = '../layout/';
     private $module;
 
 //    System config
@@ -58,7 +58,10 @@ final class Index {
             'UserDao' => '../dao/UserDao.php',
             'ClinicMapper' => '../mapping/ClinicMapper.php',
             'UserMapper' => '../mapping/UserMapper.php',
-            'Dao' => '../dao/Dao.php');
+            'Dao' => '../dao/Dao.php',
+            'Job' => '../model/Job.php',
+            'JobDao' => '../dao/JobDao.php',
+            'JobMapper' => '../mapping/JobMapper.php');
         
         //Exception handler if class not found
         if (!array_key_exists($name, $classes)) {
@@ -117,7 +120,10 @@ final class Index {
         if ($this->hasView($page)) {
             $run = true;
             // data for main template
-            $view = $this->getView($page);            
+            $view = $this->getView($page); 
+    //            var_dump($view);
+    //            die();
+            
             $flashes = null;
             if (Flash::hasFlashes()) {
                 $flashes = Flash::getFlashes();

@@ -34,19 +34,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img class="navbar-brand" src='../web/img/logo2.svg' href="index-controller.php" alt='logo'>
+                    <a href='../web/index-controller.php'><img class="navbar-brand" src='../web/img/logo2.svg' href="index-controller.php" alt='logo'></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="nav navbar-nav">                        
+                        <?php
+                        if (array_key_exists('role', $_SESSION)){
+                        if ($_SESSION['role'] === 'admin' or $_SESSION['role'] === 'clinic' ){
+                        echo '<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clinic Options <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Page 1-1</a></li>
-                                <li><a href="#">Page 1-2</a></li>
-                                <li><a href="#">Page 1-3</a></li>
+                                <li><a href="#">View my jobs</a></li>
+                                <li><a href="../web/index-controller.php?module=job&page=create">Create job</a></li>
                             </ul>
-                        </li>
+                        </li>';
+                            
+                        }}
+                            ?>
                         <li><a href="#">Page 2</a></li>
                         <li><a href="#">Page 3</a></li>
                     </ul>

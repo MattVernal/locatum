@@ -35,12 +35,12 @@
                     <br>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1">Password</span>
-                        <input name='password' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                        <input name='password' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1">Confirm Password</span>
-                        <input name='passwordConfirm' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                        <input name='passwordConfirm' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
                     </div>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" >Submit</button>
@@ -96,12 +96,12 @@
                     <br>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1">Password</span>
-                        <input name='password' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                        <input name='password' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
                     </div>
                     <br>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="sizing-addon1">Confirm Password</span>
-                        <input name='confirmPassword' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                        <input name='confirmPassword' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
                     </div>
 
                     <br>

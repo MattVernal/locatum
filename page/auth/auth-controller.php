@@ -21,10 +21,13 @@ if (isset($_POST['submit'])) {
 
 
     //ask the database for user with the supplied credentials
-    $user = $dao->getUserDetails($email, $password, $db);
+    $user = $dao->getUserDetails($email, $password, $db);    
     //if supplied credentials match with what was requested from the database, login
     if ($email === $user['email'] && $password === $user['password']) {
         $_SESSION['email'] = $email;
+//        var_dump($user['role']);
+//        die();
+        $_SESSION['role'] = $user['role'];
         header('Location: index-controller.php');
     } else {
         $errors = 'Incorrect credentials, please try again!';
