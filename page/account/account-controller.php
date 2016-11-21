@@ -21,6 +21,14 @@ if (array_key_exists('option', $_GET)) {
             'phoneNumber' => $_POST['phoneNumber'],
         );
         UserMapper::map($user, $userData);
+        if(empty($errors)){
+            $dao = new UserDao;
+            $user = $dao->save($user);
+            $_SESSION['email'] = $user->getEmail();
+            
+        }
+        
+
     }
     if ($_GET['option'] === 'clinic') {
         echo 'clinic';
@@ -41,7 +49,7 @@ if (array_key_exists('option', $_GET)) {
             'phoneNumber' => $_POST['phoneNumber'],
         );
         $clinicData = array(
-            'contactName' => $_POST['firstName'],
+            'contactName' => ($_POST['firstName'] . $_POST['lastName']),
             'contactMail' => $_POST['email'],
             'address' => $_POST['address'],
             'clinicName' => $_POST['clinicName'],

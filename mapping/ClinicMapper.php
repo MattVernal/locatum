@@ -6,30 +6,20 @@ class ClinicMapper {
         
     }
 
-    public static function map(User $user, array $properties) {
+    public static function map(Clinic $clinic, array $properties) {
         if (array_key_exists('id', $properties)) {
-            $user->setId($properties['id']);
+            $clinic->setId($properties['id']);
         }
-        if (array_key_exists('email', $properties)) {
-            $user->setEmail($properties['email']);
+        
+        if (array_key_exists('contactName', $properties)) {
+            $clinic->setContactName($properties['contactName']);
         }
-
-        if (array_key_exists('firstName', $properties)) {
-            $user->setFirstName($properties['firstName']);
-        }
-        if (array_key_exists('lastName', $properties)) {
-            $user->setLastName($properties['lastName']);
+        if (array_key_exists('address', $properties)) {
+            $clinic->setAddress($properties['address']);
         }
 
-        if (array_key_exists('phoneNumber', $properties)) {
-            $user->setContactNumber($properties['phoneNumber']);
-        }
-
-        if (array_key_exists('password', $properties)) {
-            $user->setPassword($properties['password']);
-        }
-        if (array_key_exists('role', $properties)) {
-            $user->setRole($properties['role']);
+        if (array_key_exists('clinicName', $properties)) {
+            $clinic->setContactNumber($properties['clinicName']);
         }
     }
 
