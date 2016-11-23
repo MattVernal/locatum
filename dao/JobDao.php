@@ -9,6 +9,59 @@ class JobDao extends Dao {
         $this->db = null;
     }
 
+    public function find($sql) {
+        $row = $this->query($sql)->fetch();
+        $job = new Job();
+        JobMapper::map($job, $row);
+        return $job;
+    }
+
+    public function findAll() {
+        $sql = 'SELECT jobs.id AS Id_job, '
+                . 'startDate, '
+                . 'endDate, '
+                . 'dateCreated, '
+                . 'jobTitle, '
+                . 'description, '
+                . 'hourlyRate, '
+                . 'clinicId, '
+                . 'clinic.id AS Id_clinic, '
+                . 'contactName, '
+                . 'address, '
+                . 'clinicName, '
+                . 'userId FROM jobs, '
+                . 'clinic WHERE jobs.clinicId = clinic.id';
+        $result = array();
+        foreach ($this->query($sql) as $row) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    public function findById($id) {
+        $sql = 'SELECT jobs.id AS Id_job, '
+                . 'startDate, '
+                . 'endDate, '
+                . 'dateCreated, '
+                . 'jobTitle, '
+                . 'description, '
+                . 'hourlyRate, '
+                . 'clinicId, '
+                . 'clinic.id AS Id_clinic, '
+                . 'contactName, '
+                . 'address, '
+                . 'clinicName, '
+                . 'userId FROM jobs, '
+                . 'clinic WHERE jobs.clinicId = clinic.id AND jobs.id = ' . $id;
+        $result = $this->query($sql)->fetch();
+        return $result;
+    }
+
+    private function query($sql) {
+        $statement = $this->getDb()->query($sql, PDO::FETCH_ASSOC);
+        return $statement;
+    }
+
     public function save(Job $job) {
         return $this->insert($job);
     }
@@ -27,12 +80,6 @@ class JobDao extends Dao {
         return $job;
     }
 
-    private function executeStatement(PDOStatement $statement, array $params) {
-        if (!$statement->execute($params)) {
-            self::throwDbError($this->getDb()->errorInfo());
-        }
-    }
-
     private function getParams(Job $job) {
         $params = array(
             ':id' => $job->getId(),
@@ -43,10 +90,6 @@ class JobDao extends Dao {
             ':hourlyRate' => $job->getHourlyRate()
         );
         return $params;
-    }
-
-    private static function throwDbError(array $params) {
-        throw new Exception('DB error[' . $errorInfo[0] . ',' . $errorInfo[1] . ']:' . errorInfo[2]);
     }
 
 }

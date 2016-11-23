@@ -19,7 +19,7 @@ class JobMapper {
         }
 
         if (array_key_exists('dateCreated', $properties)) {
-            $job->setDateCreated($dateCreated);
+            $job->setDateCreated($properties['dateCreated']);
         }
 
         if (array_key_exists('jobTitle', $properties)) {

@@ -25,4 +25,12 @@ class Dao {
         //and then return the database
         return $this->db;
     }
+        private static function throwDbError(array $params) {
+        throw new Exception('DB error[' . $errorInfo[0] . ',' . $errorInfo[1] . ']:' . errorInfo[2]);
+    }
+    private function executeStatement(PDOStatement $statement, array $params) {
+        if (!$statement->execute($params)) {
+            self::throwDbError($this->getDb()->errorInfo());
+        }
+    }
 }

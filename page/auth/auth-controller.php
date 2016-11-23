@@ -25,9 +25,9 @@ if (isset($_POST['submit'])) {
     //if supplied credentials match with what was requested from the database, login
     if ($email === $user['email'] && $password === $user['password']) {
         $_SESSION['email'] = $email;
-//        var_dump($user['role']);
-//        die();
         $_SESSION['role'] = $user['role'];
+        $_SESSION['userId'] = $user['id'];
+        
         header('Location: index-controller.php');
     } else {
         $errors = 'Incorrect credentials, please try again!';

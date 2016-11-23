@@ -10,7 +10,7 @@ class UserDao extends Dao {
     }
     //Function to find user by eamil & password
     public function getUserDetails($email, $password, $db) {
-        $statement = $db->query('SELECT email, password, role FROM user WHERE email = "' . $email . '" AND password = "' . $password . '"');
+        $statement = $db->query('SELECT email, password, role, id FROM user WHERE email = "' . $email . '" AND password = "' . $password . '"');
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         return $row;
     }

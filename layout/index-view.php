@@ -51,8 +51,8 @@
                             
                         }}
                             ?>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
+                        <li><a href="../web/index-controller.php?module=job&page=list">Browse Jobs</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php
