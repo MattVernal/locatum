@@ -11,9 +11,9 @@ class ClinicDao extends Dao {
 
     //Function to find user by eamil & password
     public function getClinicById($id, $db) {
-        $statement = $db->query('SELECT * FROM clinic WHERE id = "' . $id);
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
-        return $row;
+        $sql = 'SELECT * FROM clinic WHERE userId =' .$id; 
+        $result = $this->query($sql)->fetch();
+        return $result;
     }
 
     public function save(Clinic $clinic) {
@@ -23,8 +23,8 @@ class ClinicDao extends Dao {
     private function insert(Clinic $clinic) {
         $clinic->setId(null);
         $sql = ''
-                . 'INSERT INTO user (id, email, firstName, lastName, contactNumber, password, role)'
-                . 'VALUES (:id, :email, :firstName, :lastName, :contactNumber, :password, :role)';
+                . 'INSERT INTO clinic (id, contactName, address, clinicName, userId )'
+                . 'VALUES (:id, :contactName, :address, :clinicName, :userId)';
         return $this->execute($sql, $clinic);
     }
 
@@ -34,27 +34,16 @@ class ClinicDao extends Dao {
         return $clinic;
     }
 
-    private function executeStatement(PDOStatement $statement, array $params) {
-        if (!$statement->execute($params)) {
-            self::throwDbError($this->getDb()->errorInfo());
-        }
-    }
 
     private function getParams(Clinic $clinic) {
         $params = array(
             ':id' => $clinic->getId(),
-            ':email' => $clinic->getEmail(),
-            ':firstName' => $clinic->getFirstName(),
-            ':lastName' => $clinic->getLastName(),
-            ':contactNumber' => $clinic->getContactNumber(),
-            ':password' => $clinic->getPassword(),
-            ':role' => $clinic->getRole()
+            ':contactName' => $clinic->getContactName(),
+            ':address' => $clinic->getAddress(),
+            ':clinicName' => $clinic->getClinicName(),
+            ':userId' => $clinic->getUserId()
         );
         return $params;
-    }
-
-    private static function throwDbError(array $params) {
-        throw new Exception('DB error[' . $errorInfo[0] . ',' . $errorInfo[1] . ']:' . errorInfo[2]);
     }
 
 }

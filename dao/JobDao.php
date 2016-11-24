@@ -29,8 +29,29 @@ class JobDao extends Dao {
                 . 'contactName, '
                 . 'address, '
                 . 'clinicName, '
+                . 'userId '
+                . 'FROM jobs INNER JOIN clinic ON jobs.clinicId = clinic.id';
+        $result = array();
+        foreach ($this->query($sql) as $row) {
+            $result[] = $row;
+        }
+        return $result;
+    }
+        public function findAllByClinicId($clinicId) {
+        $sql = 'SELECT jobs.id AS Id_job, '
+                . 'startDate, '
+                . 'endDate, '
+                . 'dateCreated, '
+                . 'jobTitle, '
+                . 'description, '
+                . 'hourlyRate, '
+                . 'clinicId, '
+                . 'clinic.id AS Id_clinic, '
+                . 'contactName, '
+                . 'address, '
+                . 'clinicName, '
                 . 'userId FROM jobs, '
-                . 'clinic WHERE jobs.clinicId = clinic.id';
+                . 'clinic WHERE jobs.clinicId = clinic.id AND clinicId ='. $clinicId;
         $result = array();
         foreach ($this->query($sql) as $row) {
             $result[] = $row;
@@ -57,10 +78,7 @@ class JobDao extends Dao {
         return $result;
     }
 
-    private function query($sql) {
-        $statement = $this->getDb()->query($sql, PDO::FETCH_ASSOC);
-        return $statement;
-    }
+
 
     public function save(Job $job) {
         return $this->insert($job);
@@ -69,9 +87,18 @@ class JobDao extends Dao {
     private function insert(Job $job) {
         $job->setId(null);
         $sql = ''
-                . 'INSERT INTO jobs (id, startDate, endDate, jobTitle, description, hourlyRate)'
-                . 'VALUES (:id, :startDate, :endDate, :jobTitle, :description, :hourlyRate)';
+                . 'INSERT INTO jobs (id, startDate, endDate, jobTitle, description, hourlyRate, clinicId)'
+                . 'VALUES (:id, :startDate, :endDate, :jobTitle, :description, :hourlyRate, :clinicId)';
         return $this->execute($sql, $job);
+    }
+        public function delete($id) {
+        $sql = '
+            DELETE FROM jobs WHERE id = :id';
+        $statement = $this->getDb()->prepare($sql);
+        $this->executeStatement($statement, array(
+            ':id' => $id,
+        ));
+        return $statement->rowCount() == 1;
     }
 
     private function execute($sql, Job $job) {
@@ -87,7 +114,8 @@ class JobDao extends Dao {
             ':endDate' => $job->getEndDate(),
             ':jobTitle' => $job->getJobTitle(),
             ':description' => $job->getDesription(),
-            ':hourlyRate' => $job->getHourlyRate()
+            ':hourlyRate' => $job->getHourlyRate(),
+            ':clinicId' => $job->getClinicId()                
         );
         return $params;
     }

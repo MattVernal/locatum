@@ -15,7 +15,8 @@ if (isset($_POST['submit'])) {
         'jobTitle' => $_POST['jobTitle'],
         'description' => $_POST['description'],
         'hourlyRate' => $_POST['hourlyRate'],
-    );
+        'clinicId' => $_SESSION['clinic']['id']
+    );   
     JobMapper::map($job, $jobData);
     if(empty($errors)){
             $dao = new JobDao;

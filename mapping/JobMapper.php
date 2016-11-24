@@ -31,5 +31,8 @@ class JobMapper {
         if (array_key_exists('hourlyRate', $properties)) {
             $job->setHourlyRate($properties['hourlyRate']);
         }
+        if (array_key_exists('clinicId', $properties)) {
+            $job->setClinicId($properties['clinicId']);
+        }
     }
 }

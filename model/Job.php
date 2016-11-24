@@ -8,7 +8,16 @@ class Job {
    private $jobTitle;
    private $desription;
    private $hourlyRate;
+   private $clinicId;
+   
+   function getClinicId() {
+       return $this->clinicId;
+   }
 
+   function setClinicId($clinicId) {
+       $this->clinicId = $clinicId;
+   }
+   
    function getId() {
        return $this->id;
    }

@@ -8,7 +8,7 @@ class UserDao extends Dao {
         // close db connection
         $this->db = null;
     }
-    //Function to find user by eamil & password
+    //Function to find user by email & password
     public function getUserDetails($email, $password, $db) {
         $statement = $db->query('SELECT email, password, role, id FROM user WHERE email = "' . $email . '" AND password = "' . $password . '"');
         $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -30,11 +30,6 @@ class UserDao extends Dao {
         $this->executeStatement($statement, $this->getParams($user));
         return $user;
     }
-    private function executeStatement(PDOStatement $statement, array $params){
-        if(!$statement->execute($params)){
-            self::throwDbError($this->getDb()->errorInfo());
-        }
-    }
     private function getParams(User $user){
         $params = array(
             ':id' => $user->getId(),
@@ -48,9 +43,5 @@ class UserDao extends Dao {
         );
         return $params;
     }
-    private static function throwDbError(array $params){
-        throw new Exception('DB error[' . $errorInfo[0] . ',' . $errorInfo[1] . ']:' . errorInfo[2]);
-    }
-    
-    
+
 }

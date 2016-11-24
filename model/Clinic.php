@@ -4,6 +4,17 @@ class Clinic {
     private $contactName;    
     private $address;
     private $clinicName;
+    private $userId;
+    
+    function getUserId() {
+        return $this->userId;
+    }
+
+    function setUserId($userId) {
+        $this->userId = $userId;
+    }
+
+                
     function getId() {
         return $this->id;
     }

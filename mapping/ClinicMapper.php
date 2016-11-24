@@ -10,7 +10,7 @@ class ClinicMapper {
         if (array_key_exists('id', $properties)) {
             $clinic->setId($properties['id']);
         }
-        
+
         if (array_key_exists('contactName', $properties)) {
             $clinic->setContactName($properties['contactName']);
         }
@@ -19,7 +19,10 @@ class ClinicMapper {
         }
 
         if (array_key_exists('clinicName', $properties)) {
-            $clinic->setContactNumber($properties['clinicName']);
+            $clinic->setClinicName($properties['clinicName']);
+        }
+        if (array_key_exists('userId', $properties)) {
+            $clinic->setUserId($properties['userId']);
         }
     }
 

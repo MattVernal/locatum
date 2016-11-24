@@ -44,14 +44,13 @@
                         echo '<li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clinic Options <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">View my jobs</a></li>
+                                <li><a href="../web/index-controller.php?module=job&page=list">View my jobs</a></li>
                                 <li><a href="../web/index-controller.php?module=job&page=create">Create job</a></li>
                             </ul>
-                        </li>';
-                            
+                        </li>';                            
                         }}
                             ?>
-                        <li><a href="../web/index-controller.php?module=job&page=list">Browse Jobs</a></li>
+                        <li><a href="../web/index-controller.php?module=browse&page=list">Browse Jobs</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

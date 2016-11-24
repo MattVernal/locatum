@@ -2,11 +2,9 @@
 
 //main database access object class
 class Dao {
-    
-    
 
     private $db = null;
-    
+
     //create database connection
     public function getDb() {
         $dsn = "mysql:host=localhost;dbname=locatum;charset=utf8";
@@ -25,12 +23,20 @@ class Dao {
         //and then return the database
         return $this->db;
     }
-        private static function throwDbError(array $params) {
+
+    private static function throwDbError(array $params) {
         throw new Exception('DB error[' . $errorInfo[0] . ',' . $errorInfo[1] . ']:' . errorInfo[2]);
     }
-    private function executeStatement(PDOStatement $statement, array $params) {
+
+    public function executeStatement(PDOStatement $statement, array $params) {
         if (!$statement->execute($params)) {
             self::throwDbError($this->getDb()->errorInfo());
         }
     }
+
+    public function query($sql) {
+        $statement = $this->getDb()->query($sql, PDO::FETCH_ASSOC);
+        return $statement;
+    }
+
 }
