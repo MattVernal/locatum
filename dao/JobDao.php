@@ -59,7 +59,7 @@ class JobDao extends Dao {
         return $result;
     }
 
-    public function findById($id) {
+    public function findAllById($id) {
         $sql = 'SELECT jobs.id AS Id_job, '
                 . 'startDate, '
                 . 'endDate, '
@@ -76,18 +76,40 @@ class JobDao extends Dao {
                 . 'clinic WHERE jobs.clinicId = clinic.id AND jobs.id = ' . $id;
         $result = $this->query($sql)->fetch();
         return $result;
+    }    
+    public function findById($id) {
+        $sql = 'SELECT * FROM jobs WHERE id ='. $id;
+        $result = $this->query($sql)->fetch();
+        $job = new Job();
+        JobMapper::map($job, $result);
+//        var_dump($job);
+//        die();
+        return $job;
     }
-
-
-
     public function save(Job $job) {
-        return $this->insert($job);
+        if ($job->getId() === null){
+            return $this->insert($job);
+        }
+        return $this->update($job);
+    }
+        private function update(Job $job) {
+        $sql = '
+            UPDATE jobs SET
+                startDate = :startDate,
+                endDate = :endDate,
+                jobTitle = :jobTitle,
+                description = :description,
+                hourlyRate = :hourlyRate,
+                clinicId = :clinicId
+            WHERE
+                id = :id';
+        
+        return $this->execute($sql, $job);
     }
 
     private function insert(Job $job) {
         $job->setId(null);
-        $sql = ''
-                . 'INSERT INTO jobs (id, startDate, endDate, jobTitle, description, hourlyRate, clinicId)'
+        $sql ='INSERT INTO jobs (id, startDate, endDate, jobTitle, description, hourlyRate, clinicId)'
                 . 'VALUES (:id, :startDate, :endDate, :jobTitle, :description, :hourlyRate, :clinicId)';
         return $this->execute($sql, $job);
     }
@@ -113,7 +135,7 @@ class JobDao extends Dao {
             ':startDate' => $job->getStartDate(),
             ':endDate' => $job->getEndDate(),
             ':jobTitle' => $job->getJobTitle(),
-            ':description' => $job->getDesription(),
+            ':description' => $job->getDescription(),
             ':hourlyRate' => $job->getHourlyRate(),
             ':clinicId' => $job->getClinicId()                
         );

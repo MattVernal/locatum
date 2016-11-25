@@ -6,7 +6,7 @@ class Job {
    private $endDate;
    private $dateCreated;
    private $jobTitle;
-   private $desription;
+   private $description;
    private $hourlyRate;
    private $clinicId;
    
@@ -38,7 +38,7 @@ class Job {
        return $this->jobTitle;
    }
 
-   function getDesription() {
+   function getDescription() {
        return $this->desription;
    }
 
@@ -66,7 +66,7 @@ class Job {
        $this->jobTitle = $jobTitle;
    }
 
-   function setDesription($desription) {
+   function setDescription($desription) {
        $this->desription = $desription;
    }
 

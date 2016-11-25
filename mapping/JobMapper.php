@@ -5,7 +5,6 @@ class JobMapper {
     private function __construct() {
         
     }
-
     public static function map(Job $job, array $properties) {
         if (array_key_exists('id', $properties)) {
             $job->setId($properties['id']);
@@ -26,7 +25,7 @@ class JobMapper {
             $job->setJobTitle($properties['jobTitle']);
         }
         if (array_key_exists('description', $properties)) {
-            $job->setDesription($properties['description']);
+            $job->setDescription($properties['description']);
         }
         if (array_key_exists('hourlyRate', $properties)) {
             $job->setHourlyRate($properties['hourlyRate']);
