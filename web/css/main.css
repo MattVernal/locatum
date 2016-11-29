@@ -100,5 +100,40 @@ body {
 .theme-showcase .navbar .container {
   width: auto;
 }
-
+/*Booking Form Styling*/
+.booking_form_container{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#booking-form{
+    color:white;
+    font-family: Raleway, sans-serif;
+}
+.form_flexbox{
+    margin: auto;
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+}
+.form-group * {
+    margin-bottom: 20px;
+}
+#form__submit-container {
+    text-align: center;
+}
+.danger{
+    color: rgba(255, 0, 0, 1);
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.invalid{
+    color:black;
+    background-color: indianred;
+}
+/*Contact Form*/
+.contact_form_container{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#contact-form{
+    color:white;
+    font-family: Raleway, sans-serif;
+}
 

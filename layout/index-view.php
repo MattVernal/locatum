@@ -51,7 +51,7 @@
                         }}
                             ?>
                         <li><a href="../web/index-controller.php?module=browse&page=list">Browse Jobs</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="../web/index-controller.php?module=contact&page=contact">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php

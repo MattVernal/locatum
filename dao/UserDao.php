@@ -8,29 +8,39 @@ class UserDao extends Dao {
         // close db connection
         $this->db = null;
     }
+
     //Function to find user by email & password
     public function getUserDetails($email, $password, $db) {
         $statement = $db->query('SELECT email, password, role, id FROM user WHERE email = "' . $email . '" AND password = "' . $password . '"');
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-        return $row;
+        if ($row === false) {
+            return null;
+        } else {
+            $user = new User();
+            UserMapper::map($user, $row);
+            return $user;
+        }
     }
-    public function save(User $user){        
-            return $this->insert($user);
-        }   
-    
-    private function insert(User $user){
+
+    public function save(User $user) {
+        return $this->insert($user);
+    }
+
+    private function insert(User $user) {
         $user->setId(null);
         $sql = ''
                 . 'INSERT INTO user (id, email, firstName, lastName, contactNumber, password, role)'
                 . 'VALUES (:id, :email, :firstName, :lastName, :contactNumber, :password, :role)';
-        return $this->execute($sql, $user);        
+        return $this->execute($sql, $user);
     }
-    private function execute ($sql, User $user){
+
+    private function execute($sql, User $user) {
         $statement = $this->getDb()->prepare($sql);
         $this->executeStatement($statement, $this->getParams($user));
         return $user;
     }
-    private function getParams(User $user){
+
+    private function getParams(User $user) {
         $params = array(
             ':id' => $user->getId(),
             ':email' => $user->getEmail(),
@@ -39,7 +49,6 @@ class UserDao extends Dao {
             ':contactNumber' => $user->getContactNumber(),
             ':password' => $user->getPassword(),
             ':role' => $user->getRole()
-        
         );
         return $params;
     }

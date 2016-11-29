@@ -49,7 +49,8 @@ final class Index {
             'Error' => '../validation/Error.php',
             'Flash' => '../flash/Flash.php',
             'NotFoundException' => '../exception/NotFoundException.php',
-            'BookingValidator' => '../validation/BookingValidator.php',
+            'JobValidator' => '../validation/JobValidator.php',
+            'UserCredentialsValidator' => '../validation/UserCredentialsValidator.php',
             'Utils' => '../util/Utils.php',
             'HeadTemplate' => '../layout/HeadTemplate.php',
             'User' => '../model/User.php',
@@ -104,7 +105,7 @@ final class Index {
     private function runErrorPage($page, array $extra = array()){
         $run = true;
         require self::PAGE_DIR . $page . '-controller.php';
-        $template = self::PAGE_DIR  . $page . '-view.php';
+        $view = self::PAGE_DIR  . $page . '-view.php';
         $flashes = null;
         require self::LAYOUT_DIR . 'index-view.php';
     }
@@ -121,8 +122,6 @@ final class Index {
             $run = true;
             // data for main template
             $view = $this->getView($page); 
-    //            var_dump($view);
-    //            die();
             
             $flashes = null;
             if (Flash::hasFlashes()) {

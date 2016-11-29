@@ -82,8 +82,6 @@ class JobDao extends Dao {
         $result = $this->query($sql)->fetch();
         $job = new Job();
         JobMapper::map($job, $result);
-//        var_dump($job);
-//        die();
         return $job;
     }
     public function save(Job $job) {

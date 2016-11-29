@@ -11,9 +11,15 @@ class ClinicDao extends Dao {
 
     //Function to find user by eamil & password
     public function getClinicById($id, $db) {
-        $sql = 'SELECT * FROM clinic WHERE userId =' .$id; 
+        $sql = 'SELECT * FROM clinic WHERE userId =' . $id;
         $result = $this->query($sql)->fetch();
-        return $result;
+        if ($result === FALSE) {
+            return null;
+        } else {
+            $clinic = new Clinic;
+            ClinicMapper::map($clinic, $result);
+            return $clinic;
+        }
     }
 
     public function save(Clinic $clinic) {
@@ -33,7 +39,6 @@ class ClinicDao extends Dao {
         $this->executeStatement($statement, $this->getParams($clinic));
         return $clinic;
     }
-
 
     private function getParams(Clinic $clinic) {
         $params = array(

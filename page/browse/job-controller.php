@@ -4,7 +4,11 @@ $errors = '';
 
 if (array_key_exists('id', $_GET)){
     $id= $_GET['id'];
-    $dao = new JobDao;
-    $db = $dao->getDb();
-    $job = $dao->findById($id);
+    $jobDao = new JobDao;
+    $clinicDao = new ClinicDao();
+    $db = $jobDao->getDb();
+    $job = $jobDao->findById($id);
+    $clinic = $clinicDao->getClinicById(($job->getClinicId()), $db);
+//    var_dump($clinic);
+//    die();
     }
