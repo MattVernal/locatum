@@ -1,3 +1,65 @@
+/* Form Styling*/
+.danger{
+    color: rgba(255, 0, 0, 1);
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.invalid{
+    color:black;
+    background-color: indianred;
+}
+/*Home Page*/
+.landing{
+    background-color: #5c9bc0;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    font-family: raleway, sans-serif;
+    font-size: 4em;
+}
+.business-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    height: 500px;
+    background: url('../../web/img/surgeon.jpg') center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.signup-button{
+    background-color: #222222;
+    color:white;
+    font-size: 3em;
+    font-family: Julius Sans One, sans-serif;
+    padding: 5px;
+}
+.browse-button{
+    text-align: center;
+    background-color: white;
+    color:black;
+    font-size: 3em;
+    font-family: Julius Sans One, sans-serif;
+    padding: 5px;
+    border: 2px black solid;
+}
+.main-body{
+    display: inline-block;
+    text-align: center;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+    font-family: Julius Sans One, sans-serif;
+    font-size: 3.5em;
+    color: black;
+}
+
+.img-center {
+    margin: 10px auto;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -16,42 +78,9 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
-
-
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
-}
-header{
-    text-align: right;
-    padding: 30px;
-}
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
-}
-
-.errors{
-    text-align: center;
-    color: red;
-}
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -100,40 +129,3 @@ body {
 .theme-showcase .navbar .container {
   width: auto;
 }
-/*Booking Form Styling*/
-.booking_form_container{
-    background-color: rgba(0, 0, 0, 0.7);
-}
-#booking-form{
-    color:white;
-    font-family: Raleway, sans-serif;
-}
-.form_flexbox{
-    margin: auto;
-    width: 500px;
-    display: flex;
-    justify-content: space-around;
-}
-.form-group * {
-    margin-bottom: 20px;
-}
-#form__submit-container {
-    text-align: center;
-}
-.danger{
-    color: rgba(255, 0, 0, 1);
-    background-color: rgba(255, 0, 0, 0.2);
-}
-.invalid{
-    color:black;
-    background-color: indianred;
-}
-/*Contact Form*/
-.contact_form_container{
-    background-color: rgba(0, 0, 0, 0.7);
-}
-#contact-form{
-    color:white;
-    font-family: Raleway, sans-serif;
-}
-

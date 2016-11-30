@@ -1,6 +1,6 @@
 <div class="contact_form_container">
     <h3>Contact Us</h3>
-    <form id="contact-form" method="GET" action="contact-success.html">
+    <form id="contact-form" method="GET" action="../web/index-controller.php?module=contact&page=contact-success">
         <div class="form_flexbox">
             <div class="booking_form_container_left">
                 <div class="form-group">

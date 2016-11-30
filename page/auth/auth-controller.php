@@ -15,14 +15,13 @@ if (isset($_POST['submit'])) {
     $clinicDao = new ClinicDao();
     //initialise db
     $db = $userDao->getDb();
-    //set user variables
+    //set user variables & filter user input
     $email = filter_input(INPUT_POST, 'inputEmail', FILTER_VALIDATE_EMAIL);
     $password = filter_input(INPUT_POST, 'inputPassword', FILTER_SANITIZE_STRING);
     $errors = UserCredentialsValidator::validateLogin($email, $password);
     //ask the database for user with the supplied credentials
     $user = $userDao->getUserDetails($email, $password, $db);
-    //if supplied credentials match with what was requested from the database, login
-    
+    //if supplied credentials match with what was requested from the database, login    
     if ($user) {
         $_SESSION['email'] = $user->getEmail();
         $_SESSION['role'] = $user->getRole();
@@ -38,7 +37,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['clinicId'] = $clinic->getId();
             header('Location: index-controller.php');
         }      
-    //
+    //If there are errors in the page prevent login and display error messages
     } else {
         $errors = 'Incorrect credentials, please try again!';
     }

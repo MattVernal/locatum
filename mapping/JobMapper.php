@@ -5,6 +5,7 @@ class JobMapper {
     private function __construct() {
         
     }
+    //function for mapping values from associative arrays returned from the DB to an instance of a job object
     public static function map(Job $job, array $properties) {
         if (array_key_exists('id', $properties)) {
             $job->setId($properties['id']);

@@ -154,6 +154,7 @@ final class Index {
     }
 
 }
+//Main script
 
 $index = new Index();
 $index->init();

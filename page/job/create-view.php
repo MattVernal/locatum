@@ -11,12 +11,7 @@
     }
     ?>
     <h1>
-        <?php if ($edit): ?>
-            Edit&nbsp;
-        <?php else: ?>
-            Add&nbsp; 
-        <?php endif; ?>
-        Job
+        <?php if ($edit): ?>Edit <?php else: ?>Add <?php endif; ?>Job
     </h1>
     <?php if (!empty($errors)): ?>
         <ul class="errors">

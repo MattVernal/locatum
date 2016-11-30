@@ -39,7 +39,7 @@ class Job {
    }
 
    function getDescription() {
-       return $this->desription;
+       return $this->description;
    }
 
    function getHourlyRate() {
@@ -66,8 +66,8 @@ class Job {
        $this->jobTitle = $jobTitle;
    }
 
-   function setDescription($desription) {
-       $this->desription = $desription;
+   function setDescription($description) {
+       $this->description = $description;
    }
 
    function setHourlyRate($hourlyRate) {
