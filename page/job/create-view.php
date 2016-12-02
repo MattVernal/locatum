@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['email'])) : ?>
 <div class='container'>
     <?php
     function error_field($title, array $errors) {
@@ -29,7 +30,7 @@
             if (array_key_exists('id', $_GET)) {
                 echo $job->getStartDate();
             }if(isset($_POST['startDate'])){echo $_POST['startDate'];}
-            ?>' name ='startDate' type="text" class="date" placeholder="xx/xx/xxxx" aria-describedby="sizing-addon1">
+            ?>' name ='startDate' type="text" class="form-control date" placeholder="xx/xx/xxxx" aria-describedby="sizing-addon1">
             <span id="startDate-error"></span>
         </div>
         <br>
@@ -79,3 +80,6 @@
         addFormValidation(document.querySelector('#job-create-form'))
     });
 </script>
+<?php else: ?>
+<h1>You must be logged in to access this section</h1>
+<?php endif; ?>

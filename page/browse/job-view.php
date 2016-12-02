@@ -1,24 +1,39 @@
 <?php
-if ($job === null && $clinic === null){
+if ($job === null && $clinic === null) {
     echo '<h1> Sorry, the requsted job couldnt be found </h1>';
 }
-
-// View for the job page
-echo '<div class = "container">';
-echo '<h1>Title: '.$job->getJobTitle(). '</h1>';
-echo '<h3>Location: '.$clinic->getAddress().'</h3>';
-echo '<h3>Rate: '.$job->getHourlyRate().'</h3>';
-echo '<p>description :'.$job->getDescription().'</p>';
-echo '<h3>Reference Number: '.$job->getId().'</h3>';
-echo '<h3>Contact Details: '.$clinic->getContactName().'</h3>';
-echo '<h3>Listed: '.$job->getDateCreated().'</h3>';
-echo '</div>';
-
-
 ?>
-        
+<div class="container">
+    <div class="JobList">
+        <h1><?php echo $job->getJobTitle(); ?> - <?php echo $clinic->getClinicName(); ?> </h1>   
+        <div class="JobBox">
+            <div>                                    
+                <h3><span class="label">Start Date:</span><?php echo $job->getStartDate(); ?></h3>
+                <h3><span class="label">End Date:</span><?php echo $job->getEndDate(); ?></h3>
+            </div>
+            <div>
+                <h3><span class="label">Listed:</span><?php echo $job->getDateCreated(); ?></h3>       
+                <h3><span class="label">Hourly Rate: $</span><?php echo $job->getHourlyRate(); ?></h3>
+            </div>
+            <div>
+                <h3><span class="label">Location:</span><?php echo $clinic->getAddress(); ?></h3>
+                <h3><span class="label">Reference Number: <?php echo $job->getId(); ?></span></h3>
+
+            </div>
+            <div>
+                <h3><span class="label">Description:</span></h3>
+                <p><?php echo $job->getDescription(); ?></p>
+            </div>
+            <div>
+                <h3><span class="label">Contact Name:</span><?php echo $clinic->getContactName(); ?></h3>
+                <h3><span class="label">Email:</span>Someone@example.com</h3>
+                <h3><span class="label">Phone Number:</span>80800123456</h3>
+            </div>
+        </div>
+    </div>
+
     <?php if ($errors) { ?>
-<!--    View for errors - loop through errors array-->
+        <!--    View for errors - loop through errors array-->
         <div class="errors">
             <p><?php echo $errors; ?></p>
         </div>

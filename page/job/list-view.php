@@ -1,22 +1,39 @@
-<?php if (empty($jobs)): ?>
-    <p>No jobs found.</p>
-<?php else: ?>
-    <h2>Your Listed Jobs</h2>
-    <ul class="list">
-        <?php foreach ($jobs as $job): ?>
-            <li>                
-                <h3><a <?php echo "href= ../web/index-controller.php?module=browse&page=job&id=" . $job['Id_job'] . ">" ?>
-                        <?php echo $job['jobTitle'] . '</a>'; ?></a></h3>                
-                <p><span class="label">Start Date:</span> <?php
-                    echo $job['startDate'];
-                    ?></p>
-                <p><span class="label">End Date:</span> <?php
-                    echo $job['endDate'];
-                    ?></p>
-                <p><a href="index-controller.php?module=job&page=create&id=<?php echo $job['Id_job'] ;?>">Edit</a>
-                    | <a href="index-controller.php?module=job&page=delete&id=<?php echo $job['Id_job']; ?>">Delete</a></p>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+<div class="container">
+    <?php if (!isset($_SESSION['email'])) : ?>
+        <h1>You must be logged in to see this section</h1>
+    <?php elseif (empty($jobs)): ?>
+        <h1>No jobs found.</h1>
+    <?php else: ?>
+        <div class="JobList">
+            <h1>Your Listed Jobs</h1>
+            <?php foreach ($jobs as $job): ?>
+                <h2><a <?php echo "href= ../web/index-controller.php?module=browse&page=job&id=" . $job['Id_job'] . ">" ?>
+                        <?php echo Utils::escape($job['jobTitle'])?> </a></h3>   
+                    <div class="JobBox">                        
+                        <div>                                    
+                            <h3><span class="label">Start Date:</span> <?php
+                                echo $job['startDate'];
+                                ?></h3>
+                            <h3><span class="label">End Date:</span> <?php
+                                echo $job['endDate'];
+                                ?></h3>
+                        </div>
+                        <div>
+                            <h3><span class="label">Listed:</span> <?php
+                                echo $job['dateCreated'];
+                                ?></h3>       
+                            <h3><span class="label">Hourly Rate: $</span> <?php
+                                echo $job['hourlyRate'];
+                                ?></h3>
+                        </div>
+                    </div>
+                    <div>
+                        <h3><a href="index-controller.php?module=job&page=create&id=<?php echo $job['Id_job']; ?>">Edit</a>|<a href="index-controller.php?module=job&page=delete&id=<?php echo $job['Id_job']; ?>">Delete</a></h3>
+                    </div>
+                <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
+
+
 

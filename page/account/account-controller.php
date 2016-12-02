@@ -4,7 +4,7 @@ $headTemplate = new HeadTemplate('Create Account | Locatum', 'Your locum recruit
 $errors = '';
 
 if (array_key_exists('option', $_GET)) {
-    if ($_GET['option'] === 'locum') {     
+    if ($_GET['option'] === 'locum') {
         $user = new User();
         $user->setEmail('');
         $user->setFirstName('');
@@ -21,15 +21,13 @@ if (array_key_exists('option', $_GET)) {
             'phoneNumber' => $_POST['phoneNumber'],
         );
         UserMapper::map($user, $userData);
-        if(empty($errors)){
+        if (empty($errors)) {
             $dao = new UserDao;
             $user = $dao->save($user);
             $_SESSION['email'] = $user->getEmail();
-            
         }
-        
-
     }
+    
     if ($_GET['option'] === 'clinic') {
         echo 'clinic';
         $user = new User();

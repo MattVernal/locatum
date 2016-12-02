@@ -7,7 +7,18 @@
     color:black;
     background-color: indianred;
 }
-/*Home Page*/
+/*Common Styling*/
+/*---------------------------------------------------------------*Home Page*/
+.container{
+    padding-top:40px;
+    font-family: raleway, sans-serif;
+
+}
+.hide{
+    display:none;
+}
+/*Homepage Styling
+-----------------------------------------------------------------*/
 .landing{
     background-color: #5c9bc0;
     padding: 50px;
@@ -17,14 +28,19 @@
     font-size: 4em;
 }
 .business-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 50px;
     height: 500px;
     background: url('../../web/img/surgeon.jpg') center no-repeat scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
@@ -33,7 +49,7 @@
     color:white;
     font-size: 3em;
     font-family: Julius Sans One, sans-serif;
-    padding: 5px;
+    padding: 12px 20px;
 }
 .browse-button{
     text-align: center;
@@ -43,89 +59,129 @@
     font-family: Julius Sans One, sans-serif;
     padding: 5px;
     border: 2px black solid;
+    margin: 20px;
 }
 .main-body{
-    display: inline-block;
+    font-family: raleway, sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
     text-align: center;
 }
-
-/* Customize the text color and shadow color and to optimize text legibility. */
-
+.testimonial{
+    text-align: left;
+}
 .tagline {
     font-family: Julius Sans One, sans-serif;
     font-size: 3.5em;
     color: black;
 }
-
 .img-center {
     margin: 10px auto;
+    margin-bottom: 40px;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}
-/* Custom page CSS
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #ffff;}
+
+/* Signin Form.
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
+
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .form-signin .checkbox {
-  font-weight: normal;
+    font-weight: normal;
 }
 .form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
 }
 .form-signin .form-control:focus {
-  z-index: 2;
+    z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
+/* Job List Styles 
+-----------------------------------------------------*/
+.JobList{
 
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+    text-align: left;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: raleway;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
 }
+.JobBox{
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
+    text-align: left;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-family: raleway;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-align: flex;
+    -ms-flex-align: flex;
+    align-items: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
-
-.theme-showcase .navbar .container {
-  width: auto;
+.label{
+    color:black;
 }

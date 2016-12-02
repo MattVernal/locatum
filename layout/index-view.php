@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href='../web/index-controller.php'><img class="navbar-brand" src='../web/img/logo2.svg' href="index-controller.php" alt='logo'></a>
+                    <a href='../web/index-controller.php'><img class="navbar-brand" src='../web/img/logo2.svg' href="index-controller.php" alt='logo' style="height: 50px; width: 128.5px"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">                        
@@ -69,8 +69,9 @@
         <?php require $view; ?>
 
         <footer class="footer">
-            <div class="container">
-                <p class="text-muted">#MV Web Development</p>
+            <div class="container-fluid">                
+                <img src='../web/img/MV2.svg' href="index-controller.php" alt='MVlogo' style="float: left;"></
+                <a href='../web/index-controller.php'><img src='../web/img/locatum_black.svg' href="index-controller.php" alt='logo' style="height: 50px; width: 128.5px; float: right" ></a>
             </div>
         </footer>  
 

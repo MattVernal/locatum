@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['role'] = $user->getRole();
         $_SESSION['userId'] = $user->getId();
         //check if user is also a clinic
-        $clinic = $clinicDao->getClinicById($user->getId(), $db);
+        $clinic = $clinicDao->getClinicByUserId($user->getId(), $db);
         //if user isnt a clinic continue with login
         if ($clinic === null){
             header('Location: index-controller.php');

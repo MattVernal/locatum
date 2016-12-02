@@ -101,129 +101,32 @@ function addFormValidation(theForm) { // Function to be called on pageload to va
         return input.match(/^\d{1,2}:\d{2}([ap]m)?$/)
     }
 
-    //function to check if phone number is at least 7 digits long format is valid by matching regex
-    //function isPhone (input){
-    //    return input.match(/^\d{7}$/)
-    //}
+//    function to check if phone number is at least 7 digits long format is valid by matching regex
+//    function isPhone (input){
+//        return input.match(/^\d{7}$/)
+//    }
 
 
 }
 
-function showTramperDates(theForm) {
-    var packageBoxList = theForm.elements['package']; //Create node list for package radio buttons
-    var flightPackage = ""; // Create empty string for package method
-    var tramperOptions = theForm.querySelector('#tramper_options'); //Create variable for the div containing the additional options for trampers
-    for (var j = 0; j < packageBoxList.length; j++) { // loop through the node list packageBoxList
-        packageBoxList[j].addEventListener('click', function () { // Add a click listener to each radio button that triggers the below function
-            for (var i = 0; i < packageBoxList.length; i++) { // loop through radio buttons again
-                if (packageBoxList[i].checked) { //If iterated button is checked
-                    flightPackage = packageBoxList[i].value; //flightPackage is set to selected value
+function showClinicOptions(theForm) {
+    var accountBoxList = theForm.elements['accountType']; //Create node list for package radio buttons
+    var chosenAccountType = ""; // Create empty string for package method
+    var clinicOptions = theForm.querySelector('#clinicOptions'); //Create variable for the div containing the additional options for trampers
+    for (var j = 0; j < accountBoxList.length; j++) { // loop through the node list packageBoxList
+        accountBoxList[j].addEventListener('click', function () { // Add a click listener to each radio button that triggers the below function
+            for (var i = 0; i < accountBoxList.length; i++) { // loop through radio buttons again
+                if (accountBoxList[i].checked) { //If iterated button is checked
+                    chosenAccountType = accountBoxList[i].value; //flightPackage is set to selected value
                 }
             }
-            if (flightPackage === "1000") { //if the chosen package is tramper then remove the hide class from the tramperOptions div
-                tramperOptions.classList.remove('hide');
-                
-                
-            } 
-            else {
-                tramperOptions.classList.add('hide'); //If it isnt tramper hide it again
-                
+            if (chosenAccountType === "clinic") { //if the chosen package is tramper then remove the hide class from the tramperOptions div
+                clinicOptions.classList.remove('hide');
+
+
+            } else {
+                clinicOptions.classList.add('hide'); //If it isnt tramper hide it again
             }
-        })
+        });
     }
-}
-
-function calculatePrice(theForm) {
-    //initalise variables
-    var numberOfPeople = 0;
-    var price = 0;
-    var hours = 0;
-    var outputSpan = document.querySelector('#price_output');
-    var elements = theForm.elements;
-    var totalPrice = 0;
-
-    for (var i = 0; i < elements.length; i++) { // Loop through each element
-        elements[i].addEventListener('click', function (evt) { // add event onblur event listener to each field as they are looped through
-            for (var i = 0; i < elements.length; i++) { //loop through elements array
-                if (elements[i].name === 'duration' && elements[i].checked) { //Get value for duration
-                    hours = elements[i].value;
-                }
-                if (elements[i].name === 'package' && elements[i].checked) {// get value for package
-                    price = elements[i].value;
-                }
-                if (elements[i].name === "numberOfPeople") {//get value for number of people
-                    numberOfPeople = elements[i].value;
-                }
-                totalPrice = price * hours * numberOfPeople;//calcualte total price
-                outputSpan.innerHTML = ("Total Price $" + totalPrice);//output price to span
-            }        
-    })
-}
-}
-
-function galleryController() {
-    //************************************initialise variables************************************
-    var mainImage = document.querySelector('#main__img'); // create variable for for hero image
-    var thumbnails = document.querySelectorAll('.img_thumbnail'); // create array of thumbnail images
-    var lastBorder = document.querySelector(".thumbnail__container img"); // Set element for last border applied
-    var leftArrow = document.querySelector(".left-btn"); //Left arrow element
-    var rightArrow = document.querySelector(".right-btn"); //right arrow element
-
-    //********************Functions***************************************************************
-
-
-    function addListeners() { //Functions for adding event listeners for required elements
-        for (var i = 0; i < thumbnails.length; i++) { // Loop through thumbnails and add click listeners that trigger the selectMainImage and applyBorder functions
-            thumbnails[i].addEventListener('click', changeImageOnCLick);// Add event listener to looped variable to call changeImageOnClick
-            thumbnails[i].addEventListener('click', applyBorder);// Add event listener to looped variable to call applyBorder
-        }
-        leftArrow.addEventListener('click', switchImagePrevious);// Add event listener to the left arrow to call switchImagePrevious
-        rightArrow.addEventListener('click', switchImageNext);// Add event listener to the left arrow to call switchImagePrevious
-    }
-
-    function changeImageOnCLick(evt) {
-        mainImage.src = evt.target.src.replace('300_200', '900_600'); // Change 300_200 in the image src with 900_600
-        //Remove border from last selected.
-        lastBorder.classList.remove("border");
-        //Add border to clicked image
-        evt.target.classList.toggle("border");
-        //Set last selected to the clicked image.
-        lastBorder = evt.target;
-        var topLeft = lastBorder.offsetLeft; //Scroll selected image to center
-        document.querySelector('.thumbnail__container').scrollLeft = topLeft - 300; //Scroll selected image to center
-    }
-
-    //If 'next' button clicked, switch to the next thumbnail by instigating a click  (triggering the onclick event listener for changing image)
-    function switchImageNext() {
-        if (!lastBorder.nextElementSibling) {
-            document.querySelector(".thumbnail__container").firstElementChild.click();
-        } else {
-            lastBorder.nextElementSibling.click();
-        }
-
-    }
-    //If 'previous' button clicked, switch to the next thumbnail by instigating a click  (triggering the onclick event listener for changing image)
-    function switchImagePrevious(){
-        if (!lastBorder.previousElementSibling) {
-            document.querySelector(".thumbnail__container").lastElementChild.click();
-        } else {
-            lastBorder.previousElementSibling.click();
-        }
-
-    }
-    //apply a border to the new selected image and remove the old one
-    function applyBorder(evt) {
-        lastBorder.classList.remove("border");
-        evt.target.classList.add("border");
-        lastBorder = evt.target;
-    }
-
-    //**********************Main Script****************************************************************
-    lastBorder.classList.add('border');
-    addListeners();
-}
-
-function showNav() {
-    var nav = document.querySelector('.hamburger_menu');
-    nav.classList.toggle('hide');
 }

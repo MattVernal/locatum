@@ -83,7 +83,7 @@ class JobDao extends Dao {
     //Function to query the DB to find a job by its ID
     public function findById($id) {
         //initialise SQL with id from the GET
-        $sql = 'SELECT * FROM jobs WHERE id ='. $id;
+        $sql = 'SELECT * FROM jobs WHERE id ='. (int)$id;
         //Query the DB using the above SQL, the job will be returned as an asociative array
         $result = $this->query($sql)->fetch();
         //Create a new instance of a job object

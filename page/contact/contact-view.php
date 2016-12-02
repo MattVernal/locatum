@@ -1,49 +1,38 @@
-<div class="contact_form_container">
-    <h3>Contact Us</h3>
+<div class="container">
+    <h2>Contact Us</h2>
     <form id="contact-form" method="GET" action="../web/index-controller.php?module=contact&page=contact-success">
         <div class="form_flexbox">
-            <div class="booking_form_container_left">
-                <div class="form-group">
-                    <label for="fullname">Full Name:</label>
-                    <br>
-                    <input id="fullname" type="text" name="fullname" required minlength="2">
-                    <br><span id="fullname-error"></span></div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <br>
-                    <input id="email" type="email" name="email" required minlength="2">
-                    <br><span id="email-error"></span></div>
-                <div class="form-group">
-                    <label for="phone">Contact Phone:</label>
-                    <br>
-                    <input id="phone" type="text" name="phone" required minlength="2" placeholder= "XXXXXXX">
-                    <br><span id="phone-error"></span></div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1" for="fullname">Full Name:</span>
+                <input class="form-control" id="fullname" type="text" name="fullname" required minlength="2">
+                <span id="fullname-error"></span><br></div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1" for="email">Email:</span>
+                <input class="form-control" id="email" type="email" name="email" required minlength="2">
+                <span id="email-error"></span><br></div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1" for="phone">Contact Phone:</span>
+                <input class="form-control" id="phone" type="text" name="phone" required minlength="2" placeholder= "XXXXXXX">
+                <span id="phone-error"></span><br></div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1" class="form-control" for="subject">Subject</span>
+                <input class="form-control" id='subject' type='text' name='subject' required>
+                <span id="subject-error"><br></span>
             </div>
-            <div class="booking_form_container_right">
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <br>
-                    <input id='subject' type='text' name='subject' required>
-                    <br><span id="subject-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for='message'>Message</label>
-                    <br>
-                    <textarea id='message' name='message' rows='10' form='contact-form' required></textarea>
-                    <br><span id="message-error"></span>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1" for='message'>Message</label>
+                    <textarea class="form-control" id='message' name='message' rows='10' form='contact-form' required></textarea>
+                    <span id="message-error"><br></span>
+            </div>
+        </div>
 
-                </div>
-            </div>
-        </div>
-        <div id="form__submit-container">
-            <button class="action__button" type="submit">Send Message</button>
-        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Send Message</button>
+
     </form>
-</div>
 </div>
 <script src="js/main.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        addFormValidation(document.querySelector('#contact-form'))
+        addFormValidation(document.querySelector('#contact-form'));
     });
 </script>

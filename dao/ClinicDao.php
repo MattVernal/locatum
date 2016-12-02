@@ -9,22 +9,39 @@ class ClinicDao extends Dao {
         $this->db = null;
     }
 
-    //Function to find clinic by its ID
-    public function getClinicById($id, $db) {
+    //Function to find clinic by user ID
+    public function getClinicByUserId($id, $db) {
         //Initialise SQL
-        $sql = 'SELECT * FROM clinic WHERE id =' . $id;
+        $sql = 'SELECT * FROM clinic WHERE userId =' . $id;
         //Query the DB using the above SQL
         $result = $this->query($sql)->fetch();
         //if clinic not found return null
         if ($result === FALSE) {
             return null;
-        }
+        }       
         //If the clinic is found, map the returned array to an instance of a clinic object
         else {
             $clinic = new Clinic;
             ClinicMapper::map($clinic, $result);
             return $clinic;
-        }
+        }      
+    }
+        //Function to find clinic by ID
+    public function getClinicById($id, $db) {
+        //Initialise SQL
+        $sql = 'SELECT * FROM clinic WHERE Id =' . $id;
+        //Query the DB using the above SQL
+        $result = $this->query($sql)->fetch();
+        //if clinic not found return null
+        if ($result === FALSE) {
+            return null;
+        }       
+        //If the clinic is found, map the returned array to an instance of a clinic object
+        else {
+            $clinic = new Clinic;
+            ClinicMapper::map($clinic, $result);
+            return $clinic;
+        }      
     }
 
     public function save(Clinic $clinic) {
