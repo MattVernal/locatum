@@ -70,7 +70,7 @@
 
         <footer class="footer">
             <div class="container-fluid">                
-                <img src='../web/img/MV2.svg' href="index-controller.php" alt='MVlogo' style="float: left;"></
+<!--                <img src='../web/img/MV2.svg' href="index-controller.php" alt='MVlogo' style="float: left;"></-->
                 <a href='../web/index-controller.php'><img src='../web/img/locatum_black.svg' href="index-controller.php" alt='logo' style="height: 50px; width: 128.5px; float: right" ></a>
             </div>
         </footer>  

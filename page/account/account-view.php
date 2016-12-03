@@ -5,6 +5,7 @@
             <input type="radio" name="accountType" value="locum" checked>Locum</input><br>
             <input type="radio" name="accountType" value="clinic">Clinic</input>
         </div>
+
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Email</span>
             <input name ='email' type="text" class="form-control" placeholder="someone@example.com" aria-describedby="sizing-addon1">
