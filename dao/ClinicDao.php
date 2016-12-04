@@ -45,8 +45,7 @@ class ClinicDao extends Dao {
     }
 
     public function save(Clinic $clinic) {
-        return $this->insert($clinic);
-    }
+        return $this->insert($clinic);    }
 
     private function insert(Clinic $clinic) {
         $clinic->setId(null);

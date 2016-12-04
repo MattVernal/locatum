@@ -21,6 +21,13 @@ class UserDao extends Dao {
             return $user;
         }
     }
+    //function to get userId from email
+    public function getUserId($email) {
+        $db = self::getDb();
+        $statement = $db->query('SELECT id FROM user WHERE email = "' . $email . '"');
+        $id = $statement->fetch(PDO::FETCH_ASSOC);
+        return $id['id'];
+    }
 
     public function save(User $user) {
         return $this->insert($user);

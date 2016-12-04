@@ -13,11 +13,11 @@ if (isset($_POST['submit'])) {
         $user->setContactNumber('');
         $user->setRole('locum');
         $userData = array(
-            'email' => $_POST['email'],
-            'firstName' => $_POST['firstName'],
-            'lastName' => $_POST['lastName'],
-            'password' => $_POST['password'],
-            'phoneNumber' => $_POST['phoneNumber'],
+            'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING),
+            'firstName' => filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING),
+            'lastName' => filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING),
+            'password' => filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING),
+            'phoneNumber' => filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING)
         );
         UserMapper::map($user, $userData);
         if (empty($errors)) {
@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
         echo 'clinic';
         $user = new User();
         $clinic = new Clinic();
+//        $clinic->
         $user->setEmail('');
         $user->setFirstName('');
         $user->setLastName('');
@@ -39,24 +40,31 @@ if (isset($_POST['submit'])) {
         $user->setRole('clinic');
 
         $userData = array(
-            'email' => $_POST['email'],
-            'firstName' => $_POST['firstName'],
-            'lastName' => $_POST['lastName'],
-            'password' => $_POST['password'],
-            'phoneNumber' => $_POST['phoneNumber'],
+            'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING),
+            'firstName' => filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING),
+            'lastName' => filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING),
+            'password' => filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING),
+            'phoneNumber' => filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING)
         );
+        UserMapper::map($user, $userData);
+        if (empty($errors)) {
+            $userDao = new UserDao;
+            $user = $userDao->save($user);
+        }
+        $id = $userDao->getUserId($_POST['email']);
         $clinicData = array(
             'contactName' => ($_POST['firstName'] . ' ' . $_POST['lastName']),
-            'contactMail' => $_POST['email'],
+            'contactMail' => $user->getEmail(),
             'address' => $_POST['address'],
             'clinicName' => $_POST['clinicName'],
+            'userId' => $userDao->getUserId($_POST['email'])
         );
-        var_dump($clinicData);
-        var_dump($userData);
-        die();
-        
-        UserMapper::map($user, $userData);
+
         ClinicMapper::map($clinic, $clinicData);
-        header('location: index-controller.php');
+        if (empty($errors)) {
+            $clinicDao = new ClinicDao;
+            $clinic = $clinicDao->save($clinic);            
+            header('location: index-controller.php?module=auth&page=auth');
+        }
     }
 }
