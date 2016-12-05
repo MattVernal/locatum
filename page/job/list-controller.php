@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 $headTemplate = new HeadTemplate('My Jobs | Locatum', 'Your locum recruitment specialists');
 $errors = '';
 if (isset($_SESSION['email'])) {

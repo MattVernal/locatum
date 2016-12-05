@@ -9,42 +9,50 @@
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Email</span>
             <input name ='email' type="text" class="form-control" placeholder="someone@example.com" aria-describedby="sizing-addon1">
+            <span id="email-error"></span>
         </div>
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">First Name</span>
             <input name ='firstName' type="text" class="form-control" placeholder="Joe" aria-describedby="sizing-addon1">
+            <span id="firstName-error"></span>
         </div>
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Last Name</span>
             <input name='lastName' type="text" class="form-control" placeholder="Bloggs" aria-describedby="sizing-addon1">
+            <span id="lastName-error"></span>
         </div>
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Phone Number</span>
             <input name='phoneNumber' type="text" class="form-control" placeholder="XXXXXXXX" aria-describedby="sizing-addon1">
+            <span id="phoneNumber-error"></span>
         </div>
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Password</span>
             <input name='password' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+            <span id="password-error"></span>
         </div>
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Confirm Password</span>
             <input name='passwordConfirm' type="password" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+            <span id="passwordConfirm-error"></span>
         </div>
         <br>
         <div id="clinicOptions" class="hide">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon" id="sizing-addon1">Business Name</span>
                 <input name='clinicName' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                <span id="clinicName-error"></span>
             </div>
             <br>
             <div class="input-group input-group-lg">
                 <span class="input-group-addon" id="sizing-addon1">Address</span>
                 <input name='address' type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+                <span id="address-error"></span>
             </div>
         </div>
         <br>
@@ -56,9 +64,9 @@
 
 </script>
 <script>
-//    document.addEventListener('DOMContentLoaded', function () {
-//        addFormValidation(document.querySelector('#signup-form'))
-//    });
+    document.addEventListener('DOMContentLoaded', function () {
+        addFormValidation(document.querySelector('#signup-form'))
+    });
     document.addEventListener('DOMContentLoaded', function () {
         showClinicOptions(document.querySelector('#signup-form'))
     });

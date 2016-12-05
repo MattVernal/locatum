@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2016 at 09:31 AM
+-- Generation Time: Dec 05, 2016 at 01:41 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `locatum`
 --
+CREATE DATABASE IF NOT EXISTS `locatum` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `locatum`;
 
 -- --------------------------------------------------------
 
@@ -39,8 +41,8 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`id`, `contactName`, `address`, `clinicName`, `userId`) VALUES
-(1, 'Matt Vernal', '123 Fake st', 'Christchurch Hospital', 1),
-(2, 'Matt Vernal', '123 Fake st', 'Ricarton Clinic', 5);
+(1, 'Admin Adminson', '123 Fake st', 'Christchurch Hospital', 1),
+(2, 'Clinic Clinicson', '123 Fake st', 'Ricarton Clinic', 5);
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,6 @@ INSERT INTO `jobs` (`id`, `startDate`, `endDate`, `dateCreated`, `jobTitle`, `de
 (7, '30/03/2016', '30/03/2016', '2016-11-28 18:48:16', 'Doctor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in nisi sit amet augue gravida iaculis. Ut ut convallis mi, ac pellentesque purus. Sed quis tellus a metus posuere tincidunt et sed nulla. Sed sodales nibh at odio scelerisque ultrices. Nam a lacinia purus, eu vestibulum ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus pretium, orci at feugiat hendrerit, turpis magna interdum arcu, quis consectetur orci nulla ac eros. Curabitur sit amet ex est. Nullam eget libero ex. Aenean dapibus viverra mattis. Praesent eget commodo tellus, sit amet volutpat metus.\r\n\r\nEtiam viverra dignissim sollicitudin. Aliquam eget odio sem. Donec quam elit, porta in felis porta, auctor blandit lectus. Donec quis iaculis enim, a aliquam lacus. Integer quis lorem ut sem ultrices finibus. Mauris iaculis urna vitae tellus dignissim egestas. Duis tempus enim cursus, faucibus nibh ullamcorper, tristique nisi. Nullam at nulla nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\r\n\r\nUt id porta lorem. Fusce quis egestas nisi. Aenean ac ipsum et ipsum facilisis volutpat non a ligula. Nulla pretium augue nec ligula molestie, et tristique leo mattis. In ipsum purus, placerat eu pulvinar mattis, luctus at massa. In volutpat sem a sem ultrices mollis. Aenean lorem dolor, suscipit id velit id, imperdiet vulputate eros. Cras mollis a velit ac venenatis. Praesent tellus urna, ornare quis aliquam ac, ultricies non eros. Vestibulum porta erat sit amet mauris fermentum bibendum. Nunc ut nibh elit. Praesent vitae sapien neque.', 40, 1),
 (8, '30/03/2016', '30/03/2016', '2016-11-29 15:54:37', 'Optometrist', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in nisi sit amet augue gravida iaculis. Ut ut convallis mi, ac pellentesque purus. Sed quis tellus a metus posuere tincidunt et sed nulla. Sed sodales nibh at odio scelerisque ultrices. Nam a lacinia purus, eu vestibulum ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus pretium, orci at feugiat hendrerit, turpis magna interdum arcu, quis consectetur orci nulla ac eros. Curabitur sit amet ex est. Nullam eget libero ex. Aenean dapibus viverra mattis. Praesent eget commodo tellus, sit amet volutpat metus.\r\n\r\nEtiam viverra dignissim sollicitudin. Aliquam eget odio sem. Donec quam elit, porta in felis porta, auctor blandit lectus. Donec quis iaculis enim, a aliquam lacus. Integer quis lorem ut sem ultrices finibus. Mauris iaculis urna vitae tellus dignissim egestas. Duis tempus enim cursus, faucibus nibh ullamcorper, tristique nisi. Nullam at nulla nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\r\n\r\nUt id porta lorem. Fusce quis egestas nisi. Aenean ac ipsum et ipsum facilisis volutpat non a ligula. Nulla pretium augue nec ligula molestie, et tristique leo mattis. In ipsum purus, placerat eu pulvinar mattis, luctus at massa. In volutpat sem a sem ultrices mollis. Aenean lorem dolor, suscipit id velit id, imperdiet vulputate eros. Cras mollis a velit ac venenatis. Praesent tellus urna, ornare quis aliquam ac, ultricies non eros. Vestibulum porta erat sit amet mauris fermentum bibendum. Nunc ut nibh elit. Praesent vitae sapien neque.', 42, 1),
 (9, '30/03/2016', '30/03/2016', '2016-11-30 13:42:14', 'Dentist', '\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis accumsan augue. Phasellus pellentesque tincidunt nisi, sed mollis arcu dapibus sed. Etiam rutrum eros eu nunc varius pretium. Morbi scelerisque, sapien semper scelerisque auctor, eros leo auctor sapien, et auctor sapien nisi eget eros. Nunc eget molestie metus. Nulla facilisi. Vestibulum at metus molestie augue vulputate ultricies. Maecenas eget neque faucibus, hendrerit neque nec, fringilla nisl. Duis feugiat fermentum ipsum ut mollis. Nunc pulvinar lobortis ipsum non elementum. Fusce pellentesque odio eu metus dictum laoreet. Quisque et porttitor mi. Maecenas faucibus id eros in egestas.', 50, 2),
-(10, '30/03/2016', '30/03/2016', '2016-12-01 15:01:09', 'Physiotherapist', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis nulla a urna feugiat sollicitudin id ac ligula. Phasellus a velit a ante tempor bibendum. Nam gravida dui nec leo porttitor, ac vehicula lorem congue. Fusce non turpis non diam sodales viverra. Curabitur sed aliquet leo. Duis maximus fringilla orci sed dapibus. Duis eget ex lobortis, aliquet turpis non, fermentum massa. Praesent ornare accumsan tortor sed placerat. Donec efficitur porta lectus. Fusce varius, mi sed tempor convallis, quam risus egestas mi, nec ultricies tortor nisi volutpat leo. Quisque in iaculis sapien. Vestibulum vel orci in lorem volutpat ultrices eget eu lorem.\r\n\r\nUt blandit id velit in accumsan. Integer non luctus leo, id dignissim erat. Cras blandit eget urna a congue. Proin urna risus, mollis vitae suscipit sit amet, mattis eu sem. Vivamus sed dolor eleifend, maximus ex in, elementum justo. Nam non elit in sapien euismod consectetur at non orci. Aliquam ut nunc nec sapien aliquam pharetra nec vel mi. In convallis turpis eget urna consectetur, sit amet cursus sapien cursus. Quisque est nisi, scelerisque nec massa id, placerat tincidunt risus. Sed sed nunc faucibus, sollicitudin velit ut, porta massa. Morbi rutrum euismod lorem, lacinia porta mauris euismod et. Aliquam efficitur dui faucibus metus ullamcorper, et dapibus velit blandit. Vivamus porttitor aliquet dui at viverra. Ut eu luctus urna, in feugiat enim. Nulla facilisi.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam pretium, justo vitae tempus pretium, nisl nisi molestie est, ac pellentesque ipsum magna in sapien. Nunc ut pretium augue. Curabitur facilisis, ex sed cursus imperdiet, tellus urna vehicula felis, at auctor augue elit a felis. Suspendisse diam nisi, pharetra sit amet arcu et, iaculis hendrerit eros. Duis id efficitur lacus. Donec a mattis metus. Pellentesque vel egestas purus. Quisque lacinia enim et tincidunt malesuada. Morbi quis turpis tortor. In ac lorem risus. Nam id ipsum elit. Nam eget fringilla eros.', 100, 1),
 (11, '30/03/2016', '30/03/2016', '2016-12-01 15:48:52', 'Chiropractor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis odio eu turpis ultricies feugiat. Nunc consectetur lacus vitae scelerisque euismod. Nunc blandit hendrerit tortor, sollicitudin imperdiet purus cursus quis. Praesent non sagittis quam. Ut dapibus bibendum metus eget congue. Vestibulum non felis sed metus maximus accumsan. Nulla a varius nisl, non lacinia arcu. Nullam a blandit odio, sollicitudin convallis tellus. Sed rhoncus, metus et semper egestas, tortor diam mollis velit, vel blandit turpis est nec odio. Pellentesque in erat a nisi auctor imperdiet eu in magna.\r\n\r\nMorbi dictum ullamcorper auctor. Cras sed egestas nulla. Fusce mattis leo mi, a rutrum nibh dictum ac. Aliquam urna velit, vestibulum at tempor at, facilisis a urna. Fusce lobortis suscipit mauris et congue. Vivamus dapibus lectus eget nisl mattis convallis. Aenean vel leo in felis malesuada mollis.\r\n\r\nCurabitur laoreet et ligula et lobortis. Vestibulum et tincidunt risus. Ut eget mattis lorem. Cras pharetra ligula purus, sit amet aliquam est rutrum non. Nunc in tristique mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis mauris id velit aliquet semper. Nullam in diam nec lorem porttitor bibendum.\r\n\r\nPhasellus dui enim, venenatis a eros quis, egestas molestie odio. Phasellus mattis pharetra neque quis euismod. Praesent ultrices faucibus egestas. Suspendisse eget feugiat erat. Sed accumsan, leo eget posuere maximus, lectus lacus feugiat massa, at accumsan urna velit nec lorem. Donec vel tellus vitae ligula malesuada rutrum. Cras vulputate pulvinar ipsum iaculis placerat. Integer in neque eget nisi pretium semper non posuere ligula. Donec auctor velit in sapien interdum, vitae bibendum nulla hendrerit. In vitae malesuada nisi. Duis molestie dictum dictum.\r\n\r\nAliquam imperdiet diam at tortor blandit pretium. Quisque vulputate fringilla interdum. Suspendisse sit amet tortor elit. Suspendisse potenti. Praesent sed auctor risus, eu dictum metus. Nunc porttitor ex sit amet vehicula interdum. Curabitur auctor vel orci ut pellentesque. Cras bibendum vehicula eleifend. Mauris euismod faucibus ipsum, finibus egestas nisl pharetra non. Donec viverra metus ut erat venenatis vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 50, 2);
 
 -- --------------------------------------------------------
@@ -91,39 +92,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `firstName`, `lastName`, `contactNumber`, `password`, `role`) VALUES
-(1, 'matthew.vernal@gmail.com', 'Matt', 'Vernal', 273831491, 'weka4332', 'admin'),
+(1, 'admin@email.com', 'Admin', 'Adminson', 123456, 'password', 'admin'),
 (2, 'someone@example.com', 'Joe', 'Bloggs', 123456, 'password', 'locum'),
 (5, 'someone1@example.com', 'Jane', 'Doe', 123456, 'password', 'clinic'),
-(6, '', '', '', 0, '', 'locum'),
-(7, '', '', '', 0, '', 'locum'),
-(8, '', '', '', 0, '', 'locum'),
-(9, '', '', '', 0, '', 'locum'),
-(10, '', '', '', 0, '', 'locum'),
-(11, '', '', '', 0, '', 'locum'),
-(12, '', '', '', 0, '', 'locum'),
-(13, '', '', '', 0, '', 'locum'),
-(14, '', '', '', 0, '', 'locum'),
-(15, '', '', '', 0, '', 'locum'),
-(16, '', '', '', 0, '', 'locum'),
-(17, '', '', '', 0, '', 'locum'),
-(18, '', '', '', 0, '', 'locum'),
-(19, '', '', '', 0, '', 'locum'),
-(20, '', '', '', 0, '', 'locum'),
-(21, '', '', '', 0, '', 'locum'),
-(22, '', '', '', 0, '', 'locum'),
-(23, '', '', '', 0, '', 'locum'),
-(24, '', '', '', 0, '', 'locum'),
-(25, '', '', '', 0, '', 'locum'),
-(26, '', '', '', 0, '', 'locum'),
-(27, '', '', '', 0, '', 'locum'),
-(28, '', '', '', 0, '', 'locum'),
-(29, '', '', '', 0, '', 'locum'),
-(30, '', '', '', 0, '', 'locum'),
-(31, '', '', '', 0, '', 'locum'),
-(32, '', '', '', 0, '', 'locum'),
-(33, '', '', '', 0, '', 'locum'),
-(34, '', '', '', 0, '', 'locum'),
-(35, '', '', '', 0, '', 'locum');
+(36, 'someone2@example.com', 'Firstname', 'LAstname', 123456, 'guest', 'locum');
 
 --
 -- Indexes for dumped tables
@@ -160,12 +132,12 @@ ALTER TABLE `clinic`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

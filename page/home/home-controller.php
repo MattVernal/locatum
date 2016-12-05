@@ -10,6 +10,6 @@ $jobs = $dao->findAll($db);
 function displayJob($jobs) {
     foreach ($jobs as $row) {   
        
-        echo '<li><p>' .'<a href="../web/index-controller.php?module=browse&page=job&id=' . $row['Id_job'] . '">' . $row['jobTitle'] . '-' . $row['clinicName']. '</a> '.'Location: '. $row['address'] .', $'.  $row['hourlyRate'] . ' Per Hour </p>';
+        echo  '<li><p>' .'<a href="../web/index-controller.php?module=browse&page=job&id=' . Utils::escape($row['Id_job']) . '">' . Utils::escape($row['jobTitle']) . '-' . Utils::escape($row['clinicName']). '</a> '.'Location: '. Utils::escape($row['address']) .', $'.  Utils::escape($row['hourlyRate']) . ' Per Hour </p>';
     }
 }

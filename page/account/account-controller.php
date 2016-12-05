@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
             'phoneNumber' => filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING)
         );
         UserMapper::map($user, $userData);
+        $errors = AccountValidator::validate($user, $clinic);
         if (empty($errors)) {
             $dao = new UserDao;
             $user = $dao->save($user);

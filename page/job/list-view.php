@@ -12,23 +12,23 @@
                     <div class="JobBox">                        
                         <div>                                    
                             <h3><span class="label">Start Date:</span> <?php
-                                echo $job['startDate'];
+                                echo Utils::escape($job['startDate']);
                                 ?></h3>
                             <h3><span class="label">End Date:</span> <?php
-                                echo $job['endDate'];
+                                echo Utils::escape($job['endDate']); ;
                                 ?></h3>
                         </div>
                         <div>
                             <h3><span class="label">Listed:</span> <?php
-                                echo $job['dateCreated'];
+                                echo Utils::escape($job['dateCreated']);
                                 ?></h3>       
                             <h3><span class="label">Hourly Rate: $</span> <?php
-                                echo $job['hourlyRate'];
+                                echo Utils::escape($job['hourlyRate']);
                                 ?></h3>
                         </div>
                     </div>
                     <div>
-                        <h3><a href="index-controller.php?module=job&page=create&id=<?php echo $job['Id_job']; ?>">Edit</a>|<a href="index-controller.php?module=job&page=delete&id=<?php echo $job['Id_job']; ?>">Delete</a></h3>
+                        <h3><a href="index-controller.php?module=job&page=create&id=<?php echo Utils::escape($job['Id_job']);?>">Edit</a>|<a href="index-controller.php?module=job&page=delete&id=<?php echo Utils::escape($job['Id_job']);  ?>">Delete</a></h3>
                     </div>
                 <?php endforeach; ?>
         </div>

@@ -62,7 +62,8 @@ final class Index {
             'Dao' => '../dao/Dao.php',
             'Job' => '../model/Job.php',
             'JobDao' => '../dao/JobDao.php',
-            'JobMapper' => '../mapping/JobMapper.php');
+            'JobMapper' => '../mapping/JobMapper.php',
+            'AccountValidator' => '../validation/AccountValidator.php');
         
         //Exception handler if class not found
         if (!array_key_exists($name, $classes)) {
